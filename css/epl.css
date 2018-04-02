@@ -1,0 +1,297 @@
+/* if localhost does not update - to force hard load - press ctrl+shift+refresh-icon */ 
+/*--------------------------------------------General settings  ----------------------------------------*/
+	/* to remove default css settings of browser  */
+*{
+	margin:0;
+	padding:0;
+
+}
+	/*will help to position elements  */
+body{
+	position:relative;	
+}
+
+/*--------------------------------Uppermost Navigation Bar settings --------------------------------------*/
+
+#navbar { 	
+	height:50px;
+	background:rgb(0 , 0, 100);
+	position:fixed; /* will show navbar even when the page is scrolled up */
+	top:0px;
+	right:0px;
+	z-index:99; /* will show navbar over and above all succeeding elements */
+}
+#navbar ul{
+	list-style-type:none; /* will remove bullets preceding li elements */
+	width:600px;
+	float:right;		
+}
+#navbar ul li{
+	height:50px;
+	width:200px;
+	background-color:rgb(0, 0, 100);
+	border-left:2px solid white;
+	border-right:2px solid white;	
+	color:white;
+	text-align:center;
+	padding-top:10px;
+	font-weight:bold;
+	float:left;
+	position:relative; /* to hold child list absolute */
+}
+
+#navbar ul li a{	
+	text-decoration:none;
+	color:white;
+}
+#navbar ul li:hover ul { /* ul inside li will drop when cursor is over it , will be visible  */
+	display:block;  
+	z-index:1; /* will show over and above succeeding elements */
+	border-top:2px solid white;
+}
+
+#navbar ul li ul{
+	width:200px; /* width of ul inside li made equal to that so that it sits pretty under it while drops */
+	height:auto;
+	display:none; /* kept hidden - will be shown while hovered  */
+	position:absolute;/* position absolute so that li does not waver */
+	top:50px;
+	left:0px;
+}
+
+#navbar ul li ul li{
+	width:200px; /* size of ul and li equal to make it vertical in dropdown  */
+	height:50px;
+	border-bottom:2px solid white;
+}
+
+/*----------------------------------------Navigation Bar settings ended ----------------------------------------*/
+
+
+/*-------------------------------------------- Image-Slider settings ------------------------------------------*/
+    /* container that will hold slideContainer div inside it */
+#picture{	
+	background-color:rgb(0 , 80, 120);	
+}
+#slideContainer{ /* settings for  container to show single slide */ 
+  height: 350px;  
+  overflow:hidden;
+  width:600px;
+  position:relative;
+  margin-left:auto;
+  margin-right:auto;  
+}
+
+#slideshow { /* settings for ul containing all images  */
+  position:relative;
+  width:7200px;
+  height:350px;  
+  list-style-type:none;  
+}
+
+     /* all images in one line - so that they can move sideways */
+#slideshow li{
+	display:inline-block;
+}
+/*----------------------------------------------------Image Slider Settings ended-------------------------------*/
+#contents{
+	margin-top:10px;
+}
+#footer{	
+	width:100%;
+	height:auto;	
+	text-align:center;
+	background:rgb(0 , 0, 100);
+	color:white;
+	padding:25px;
+	padding-bottom:50px;		
+}
+/*----------------------------------------footer navigation links : settings -----------------------------------*/ 
+	/*team list links inside footer    */
+#team-list ul{	
+	list-style-type:none;
+	font-size:15px;
+}
+#team-list  ul li{
+	display:inline;
+}
+#team-list li a{
+	text-decoration:none;
+	color:white;	
+}
+	/*nav items same as used in header have links inside footer    */
+#nav-menu ul{	
+	list-style-type:none;
+	font-size:18px;
+}
+#nav-menu  ul li{
+	display:inline;
+	margin-right:30px;	
+}
+
+#nav-menu  li a{
+	text-decoration:none;
+	color:white;		
+}
+/*--------------------------------------------back2home link : Settings ------------------------*/
+#back2home{
+	height:40px;
+	width:100%;
+	background:rgb(0, 120, 180);
+	color:white;
+	margin-top:20px;
+	margin-bottom:20px;	
+	border:1px solid rgb(0, 120, 180);
+}
+#back2home a {
+	text-decoration:none;
+	color:white;
+	font-weight:bold;
+}
+/* --------------------------------Table Settings Started -----------------------------------------------*/
+h4{ 
+	text-align:center; 
+}
+
+#homeHeading {
+	height:50px;
+	width:100%;
+	text-align:center;
+	padding-top:10px;
+}
+
+table{
+   margin-top:20px;
+   width:100%;
+}
+
+th { background:rgb(0,0,100); color:white; }
+td , th { text-align:center; }
+
+#highlight-table {
+	margin-left:20px; 
+	border-bottom:1px solid #ccc;
+	color:rgb(0 , 0, 100);
+}
+
+
+#highlight-table td{
+	text-align:left;
+	padding-left:20px;
+}
+
+	/* these classes  created to show team name and image in table output */
+.team-logo{
+	float:left; 
+}
+.team-code{
+	float:right;
+	text-decoration:none; 
+	font-weight:bold;
+}
+	/* these classes for two boxes created to show single match result */
+.left-box{ 
+	text-align:right; 
+}
+.right-box{ 
+	text-align:left; 
+}
+/*to keep image in center */
+.centerImage, .img-responsive{
+	margin:20px auto;
+
+}
+
+/*------------------------------------Table settings Ended --------------------------------------------*/
+
+/*--------------------------------------------Large Screen settings ended ----------------------------------------*/
+
+
+
+
+
+/*---------------------------------------- MEDIA QUERIES STARTED--------------------------------------------------*/
+/* ----------------------------------CSS settings for  small devices -------------------------------*/
+@media screen and (max-width:990px){
+	 #highlight-table{ /*   */
+		margin-left:0px;
+	}
+@media screen and (max-width:768px){
+	 .team-logo{ /*space shrinks so images made hidden to create space   */
+		display:none;
+	}
+	.team-code{
+		clear:both;
+		padding-right:20px;
+	}
+	table{
+		font-size:10px;
+	}
+	#slideContainer{
+		width:100%;
+	}
+	#navbar{ /*space shrinks so font-size reduced   */
+		font-size:8px;
+		height:30px;
+		background:#eee;
+	}
+	
+	#navbar ul{		
+		width:300px; /*space shrinks so ul size reduced   */
+		height:30px;
+		position:fixed;
+		top:0px;
+		right:20px;		
+	}
+	#navbar ul li{		/*space shrinks so li width reduced   */
+		width:100px;
+		height:30px;
+	}
+	#navbar ul li ul{
+		height:auto;
+		width:100px; /*space shrinks so ul size reduced   */
+		position:absolute;
+		top:30px;
+		left:0px;
+	}
+	
+	#navbar ul li ul li{
+		width:100px;
+		height:30px;
+		border-bottom:2px solid white;
+	}
+	
+}
+/* ----------------------------------CSS settings for extra small screen -------------------------------*/
+@media screen and (max-width:500px){
+	/*making adjustment as space shrinks   */ 
+	table{
+		font-size:8px;
+	}
+	.matchday-box{ 
+		width:20%;
+		overflow-wrap:break-word; 
+	}
+		
+	input:placeholder{
+		font-size:8px;
+	}
+	.filter-heading{ 
+		font-size:8px;
+	}
+	#footer{	
+		padding:5px;	
+	}
+	#nav-menu ul{
+		font-size:12px;
+	}
+	#team-list ul, #team-list h3{
+		font-size:10px;
+	}	
+	
+}
+/*-------------------------------------------------End of Media Queries------------------*/
+
+/*----------------------------------End of CSS file ---------------------------------*/
+
+

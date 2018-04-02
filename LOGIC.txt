@@ -1,0 +1,91 @@
+Assignment - LEVEL-4 : AngularJS
+-------------------------------------------------------------------------------------------------------------------------
+Problem Statement-
+
+Create a single page application using AngularJS which has following views-
+
+	1. A view to display all matches held . This view should contain various 
+	filters like  filter by year, filter by Team name, filter by score etc. 
+	( you can add more filters as you see fit, you will earn extra points for that).
+
+	2. A view to display details of a single match.
+
+	3. A view to display team wise statistics like total matches played, 
+	total won, total lost, total number of goals scored by that team etc. 
+	( you can think of more data points, youwill earn extra points for 
+	thinking more analysis points.)
+
+	Host this code in a github repository as well and send tha link of 
+	that repository in the submission . 
+
+	Technologies to be used - HTML5 , CSS , Javascript , Bootstrap and AngularJS
+
+--------------------------------------------------------------------------------------------------------------------------
+For visualisation we have developed a index page using technologies:html, CSS, bootstrap ,angularJS, javascript , jquery . 
+Index Page has 4 sections out of which 3 appear in every page view while 1 is created to hold dynamic content . With every 
+click made on navigation link   , dynamic content changes without any reload but remaining page remains the same. This is 
+how the contents of index page appear:
+	
+1. A navbar at the top of page which is fixed so that it remains visible even when page is scrolled down.
+2. navbar has three menu items - Home , Season 2015-16 , Season 2016-17
+3. Home menu has link for Index Page i.e. Home page , to return from other pages.
+4. Second/Third menu i.e. Session 2015-16 has two drop down sub-menu items. 
+5. First sub-menu : League Summary - by clicking this use will see a page - showing summary position league 2015-16
+6. Second sub-menu : All League Matches - by clicking this use will see a page - showing all matches details - league 2015-16.
+
+7. Second Div in the space that  houses a image slider which will be run by a jquery function written in jsFunctions.js file.
+
+8. Third Div is the most important . houses dynamic content. During navigation content of this page changes. We keep this div 
+   blank  and attach with it an angularJs directive ng-view. Required to complement $route service and load content as per 
+   route change.
+   
+ 9. Fourth Div house footer of the page where in we have given links of navbar again here. Furthermore , links of all teams of 
+	both seasons. When name of a team is clicked , the page will show all matches played by that team.	
+10. All this content in footer has been generated dynamically using Javascript in file jsFunctions.js.
+11. In opening body tag used ng-app directive so that angularJs could be used upto closing tag of body tag.
+12. In the end of file , we have given external link of angular-route.js which helps in providing route for different pages.
+
+-------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------Home Page-----------------------------------------------------------------------
+1. This page is loaded with index file by default in ng-view div , the contents of home.html
+2. This page has five tables  showing highlights of performance in session-2016-17 and also an image of trophy.
+3. The idea is to present some information capsules to increase curosity of the viewer and tempt him to click the links.
+4. At the start of home.html - function - loadHomePage - is called through ng-init directive.  
+5. This function is written in 'homeController'  function in app.js file, delivers data to the home.html in form of a json
+   array of objects.
+6. This array is referenced to obtain data for above five tables.
+
+----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------Problem Statement Point No. 1-------------------------------------------------------------
+-----------------------------------------A view to display all matches held-------------------------------------------------------
+1. It presents us a page with display position relating all Matches of the season.
+2. When -All Matches --- sub-menu item inside navbar menu is clicked , event sends parameters like season-type for variable and 
+   leagueDetails to keep it unique.
+3. Table output displays Columns like Matchday, Date , Team-1 Code, Team-2 Code,  Winner ,  Goals Scored , Goals Against .
+4. At the start of leagueMatches.html function - showAllMatches - is called through ng-init directive. 
+5. This function is written inside 'engPreLea' controller function in app.js file, delivers data to leagueMatches.html .
+
+----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------Problem Statement Point No. 2 ------------------------------------------------------------
+-----------------------------------------------Single Match View -----------------------------------------------------------------
+1. It presents us a page with display position relating single match.
+2. When any result under Winner column is clicked , event sends parameters like EPL season, date of match, codes of both teams and
+   a unique constant teamDetails.
+3. Page displays  Matchday , date, both team names , scores and winner of them.
+4. At the start of singleMatch.html function - decideWinner - is called through ng-init directive. 
+5. This function is written inside 'singleMatch' controller function in app.js file.
+6. The output obtained from this function is displayed in singleMatch.html.
+
+----------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------Problem Statement Point No. 3 ------------------------------------------------------------
+-----------------------------------------------Season Summary Page ---------------------------------------------------------------
+1. It presents us a page with display position relating all Matches of the season.
+2. When -All Matches --- sub-menu item inside navbar menu is clicked , event sends parameters like season-type for variable and 
+   leagueDetails to keep it unique.
+3. Table output displays Columns like Matchday, Date , Team-1 Code, Team-2 Code,  Winner ,  Goals Scored , Goals Against .
+4. At the start of leagueMatches.html function - showAllMatches - is called through ng-init directive. 
+5. This function is written inside 'engPreLea' controller function in app.js file, delivers data to leagueMatches.html .
+----------------------------------------------------------------------------------------------------------------------------------
+
+ 
+

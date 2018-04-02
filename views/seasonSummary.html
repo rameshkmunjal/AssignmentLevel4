@@ -1,0 +1,47 @@
+<!--controller function will be fired with loading of this file -->
+<div ng-init="seasonS.prepareSummary()">
+	<h4>Season Summary :{{seasonS.title }} </h4>
+	<div class="row">
+		<table class="table table-bordered table-hover table-responsive">
+			<thead>
+				<tr>					
+					<th>Team Name   </th>
+					<th> Matches Played  </th>
+					<th> Wins  </th>
+					<th> Losses   </th>
+					
+					<th> Goals Scored  </th>
+					<th> Goals Against  </th>					
+					<th> Points  </th>
+				</tr>				
+			</thead>
+			<!--loop through this array to get  all data related a season with help of  data variable  -->
+			<!--orderBy filter will filter data received in loop and as per -ve sign, set it in descending order   -->
+			<!--So the team with highest points will be displayed on topmost row  -->
+			<tbody ng-repeat="data in seasonS.jsonArr.team  | orderBy:'-points'">
+				<tr>
+				
+					<td>
+						<img class="team-logo" ng-src="images/{{ data.teamName }}.png"  width="50" height="50"/>
+						<a class="team-code" ng-href="#!{{seasonS.type}}/teamDetails/{{data.teamName}}">{{data.teamName }} </a> 
+					</td>
+					<td> {{data.matches }} </td>
+					<td> {{ data.Win}} </td>
+					<td> {{ data.Loss   }} </td>
+					
+					<td> {{ data.goalsScored }}</td>
+					<td> {{ data.goalsAgainst}} </td>
+					<td> {{ data.points}} </td>
+				</tr>				
+			</tbody>
+		</table>
+	</div>
+	<!----- this button will get you visit home page ---->
+	<div class="row">
+		<div class="col-lg-4 col-lg-offset-4">
+			<button id="back2home"><a href="#/">Back To Home Page</a><button>
+		</div>
+	</div>
+</div>	
+</div>
+<!--End of Container-->

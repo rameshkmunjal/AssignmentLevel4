@@ -1,0 +1,64 @@
+<!---controller function will be fired as the file is loaded through $routeProvider --->
+<div  ng-init="EPL.showAllMatches()">
+   <h4>Filter  By using Search Boxes</h4>
+   <div class="row">
+   <!---creating input boxes for filters --->
+	  <div class="col-lg-3 col-md-6 col-sm-3 col-xs-12 ">
+         <input type="text" class="form-control" placeholder="Matchday 2" ng-model="matchSearch.name"/>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-3 col-xs-12 ">
+         <input type="text" class="form-control" placeholder="Team1" ng-model="team1Search.team1.name" />      
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-3 col-xs-12">
+         <input type="text" class="form-control " placeholder="Team2" ng-model="team2Search.team2.name" />      
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-3 col-xs-12 ">
+         <input type="text" class="form-control " placeholder="YYYY-MM-DD" ng-model="dateSearch.date" />
+      </div>
+	  
+   </div>
+   
+   <br>
+   <table class="table   table-hover table-bordered table-responsive">
+      <thead>
+         <tr>
+            <th> Match Day </th>
+            <th> Date </th>
+            <th> Team 1 </th>
+            <th> Team 2 </th>
+            <th> Winner </th>
+         </tr>
+      </thead>
+	<!----eplData  will loop through main array received from controller function -   got in http response  --->
+	<!--match will loop through eplData and will get from array each object's different properties  --->
+	<!---filter:search is data-binding with ng-model - will display as per input in the box --->
+      <tbody ng-repeat="eplData in EPL.data | filter:matchSearch">	  
+         <tr ng-repeat="match in eplData.matches | filter:team2Search| filter:team1Search   | filter:dateSearch" >
+            <td class="matchday-box" >  {{ eplData.name }} </td>
+            <td> {{ match.date }} </td>   
+            <td >
+				<img class="team-logo" ng-src="images/{{ match.team1.code }}.png" width="50" height="50" >
+				<a class="team-code" ng-href="#!{{EPL.type}}/teamDetails/{{match.team1.code}}">{{ match.team1.code }}</a>
+			</td>
+            <td>
+				<img class="team-logo" ng-src="images/{{ match.team2.code }}.png" width="50" height="50" >
+				<a class="team-code" ng-href="#!{{EPL.type}}/teamDetails/{{match.team2.code}}">{{ match.team2.code }}</a>
+			</td>
+            <td>
+     			<a ng-href="#!{{EPL.type}}/matchDetails/{{match.date}}/{{match.team1.code}}/{{match.team2.code}}">
+               <div ng-if="match.score1 > match.score2">{{match.team1.code}} ({{match.score1}} - {{match.score2}}) </div>
+               <div ng-if="match.score1 < match.score2">{{match.team2.code}}  ({{match.score2}} - {{match.score1}})</div>
+               <div ng-if="match.score1 == match.score2">Draw  ({{match.score1}} - {{match.score2}})</div>
+			   </a>
+            </td>
+         </tr>
+      </tbody>
+   </table>
+   <!----- this button will get you visit home page ---->
+   <div class="row">
+		<div class="col-lg-4 col-lg-offset-4">
+			<button id="back2home"><a href="#/">Back To Home Page</a><button>
+		</div>
+	</div>
+</div>
+<!--End of Container-->

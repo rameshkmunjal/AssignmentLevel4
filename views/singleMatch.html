@@ -1,0 +1,25 @@
+<!--controller function will be fired with loading of this file  -->
+<!------this function will show details and result of a single match   ----->
+<div ng-init="single.decideWinner()">
+<div class="row">
+	<table>
+	<!----- left-box will show Matchday and righ-box will show date of the match ---->
+		<tr><td class="left-box" ><h3>{{single.matchDay}} : </h3></td><td class="right-box"> <h3>:{{ single.date }}</h3></td></tr>
+		<!----- Name of Team-1 and Team-2  ---->
+		<tr><td><h3>{{ single.t1}} </h3></td><td><h3>{{ single.t2 }}  </h3></td></tr>
+		<tr>
+		<td><img src="images/{{ single.t1Code}}.png" height="200" width="200" /></td>
+		<td><img src="images/{{ single.t2Code}}.png" height="200" width="200" /></td>
+		</tr><!----- score of Team-1 and Team-2  ---->
+		<tr><td><h3>{{ single.s1}} </h3></td><td><h3>{{ single.s2 }}  </h3></td></tr>
+		<tr><td colspan="2"><h3>{{single.winner}}</h3></td></tr>
+	</table>	
+</div>
+</div>
+	<!----- this button will get you visit home page ---->
+<div class="row">
+	<div class="col-lg-4 col-lg-offset-4">
+		<button  id="back2home"><a href="#/">Back To Home Page</a><button>
+	</div>	
+</div>
+<!--End of Container-->

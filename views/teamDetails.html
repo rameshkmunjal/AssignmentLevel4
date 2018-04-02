@@ -1,0 +1,44 @@
+<!--controller function will be fired with loading of this file -->
+<!------this function will show details and result of matches played by a particular team with others   ----->
+<div ng-init="singleT.getSingleTeamMatchesDetails()">
+	<h4>{{singleT.teamCode}} Performance During Season:{{singleT.title}}</h4>
+	<div class="row">
+		<table class="table table-hover table-bordered table-responsive ">
+			<thead>
+				<tr>
+					<th>Match Day </th>
+					<th>Date</th>
+					<th>Team - 1 </th>
+					<th> Team - 2</th>
+					<th> Score - Team - 1 </th>
+					<th> Score - Team - 2 </th>					
+				</tr>
+			</thead>
+		<!------Array of objects obtained from controller function   ----->
+		<!------We will loop through this array to obtain each object and display in our table   ----->
+			<tbody ng-repeat="data in singleT.jsonArr.teams">
+				<tr>					
+					<td>{{data.match }} </td>
+					<td>{{data.date }}  </td>
+					<td>
+						<img class="team-logo" ng-src="images/{{ data.team1Code }}.png"  width="50" height="50"/>
+						<a class="team-code" ng-href="#!{{singleT.type}}/teamDetails/{{ data.team1Code }}">{{ data.team1Code }}</a>  
+					</td>
+					<td>
+						<img class="team-logo" ng-src="images/{{ data.team2Code }}.png"  width="50" height="50"/>
+						<a class="team-code" ng-href="#!{{singleT.type}}/teamDetails/{{ data.team2Code }}">{{ data.team2Code }}</a>  
+					</td>
+					<td>{{ data.team1Score }}  </td>
+					<td>{{ data.team2Score }}  </td>
+				</tr>
+			</tbody>
+		</table>		
+	</div>
+	<!----- this button will get you visit home page ---->
+	<div class="row">
+			<div class="col-lg-4 col-lg-offset-4">
+				<button id="back2home"><a href="#/">Back To Home Page</a><button>
+			</div>
+	</div>
+</div>
+<!--End of Container-->

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eplApp">
+<head>
+	  <title> English Premier  League</title>
+	  <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">      
+      <!---bootstrap minified version  --->
+      <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	  <!---css file to customise CSS as per our requirement  --->
+      <link rel="stylesheet" href="css/epl.css" />	  
+</head>
+<body>
+<!---this container div will hold navbar having clickable navigation links  --->
+<div  class="container-fluid">		
+	<div class="row">	
+		<div id="navbar" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">			
+			<ul>
+				<li><a href="#/">Home</a></li>
+				<li>SEASON-2015-16
+					<ul>
+						<li><a href="#!epl_15_16/league/Summary" >Table-Summary</a></li>
+						<li><a href="#!epl_15_16/leagueDetails">Table-All Matches </a></li>							
+					</ul>
+				</li>				
+					
+				<li>SEASON-2016-17
+					<ul>
+						<li><a href="#!epl_16_17/league/Summary" >Table-Summary</a></li>
+						<li><a href="#!epl_16_17/leagueDetails">Table-All Matches </a></li>								
+					</ul>			
+				</li>			
+			<ul>				
+		</div>
+	</div>
+</div><!---container div holding nav ends here  --->
+
+<!---picture div will contain a div and list for image slider  --->
+<div id="picture" class="container-fluid">
+	<div class="row">		
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<!---sliderContainer will contain list of images which will slide one by one  --->
+				<div id="slideContainer" >
+					<ul id="slideshow">
+					   <li><img src="epl-images/photo-5.jpg" class="img-responsive"></li>
+					   <li><img src="epl-images/photo-7.jpg" class="img-responsive"></li>					   
+					   <li><img src="epl-images/photo-10.jpg" class="img-responsive"></li>
+					   <li><img src="epl-images/photo-1.jpg" class="img-responsive"></li>
+					   <li><img src="epl-images/photo-2.jpg" class="img-responsive"></li>
+					   <li><img src="epl-images/photo-3.jpg" class="img-responsive"></li>
+					   <li><img src="epl-images/photo-4.jpg" class="img-responsive"></li>	   
+					   <li><img src="epl-images/photo-6.jpg" class="img-responsive"></li>	   
+					   <li><img src="epl-images/photo-8.jpg" class="img-responsive"></li>
+					   <li><img src="epl-images/photo-9.jpg" class="img-responsive"></li>
+					   <li><img src="epl-images/photo-12.jpg" class="img-responsive"></li>
+					</ul>
+				</div>	
+			
+			</div>
+		</div>
+	</div>
+</div><!--- picture div ends here which contains image slider --->
+
+<!--- contents div is  for ng-view  where different pages can be viewed--->	
+<div id="contents" class="container-fluid" ng-view>
+</div>
+<!---footer contains clickable navigation links  generated dynamically by javascript function --->
+<div id="footer"  class="container-fluid" >
+	<div class="row">
+		<div  class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			<div id="nav-menu">
+			<!---Here will come nav list of both seasons - having clickable links   --->
+			</div>
+			<div id="team-list">
+			<!---Here will come nav list of teams - having clickable links   --->
+			</div>
+		</div>		
+	</div>
+</div>
+<!---jquery CDN link and javascript file of javascript functions  --->
+<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="js/jsFunctions.js"></script>
+<!---CDN links for angular.min.js and angular.route.js --->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<!---app.js will contain controller functions -->
+<script src="angular/app.js"></script>
+<!-- route.js will provide routes of different pages to be viewed through clickable links  --->
+<script src="angular/route.js"></script>
+</body>
+</html>

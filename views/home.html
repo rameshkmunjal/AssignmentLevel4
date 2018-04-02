@@ -1,0 +1,115 @@
+<!--controller function will be fired with loading of this file  -->
+	<div class="row">
+		<!---div to show up in  left-side table in large screen and uppermost in all others--->
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3" ng-init="home.loadHighlights('epl_16_17')">	
+		<!--table starts here --->
+		<table class="table table-bordered table-responsive">	
+			<thead >
+				<tr><th colspan="6">Top 5 Teams :{{home.title }}</th></tr>
+				<tr >
+					<th>Team Name</th>
+					<th>Matches Played </th>
+					<th> Won </th>
+					<th>Lost </th>
+					<th>Drawn</th>
+					<th>Points</th>
+				</tr>
+			</thead>
+			<!--loop to get data from json array - descending order - five records limited--->
+			<tbody ng-repeat="data in home.jsonArr.team  | orderBy:'-points' | limitTo:5">
+				<tr>
+					<td> {{data.teamName}}</td>
+					<td> {{data.matches }} </td>
+					<td> {{ data.Win}} </td>
+					<td> {{ data.Loss   }} </td>
+					<td> {{ data.Drawn}} </td>
+					<td> {{ data.points}} </td>
+				</tr>
+			</tbody>		
+		</table> <!--table ends here--->
+		<!--table starts here --->
+		<table class="table table-bordered table-responsive">	
+			<thead >
+			<tr><th colspan="6">Bottom 5 Teams :{{home.title }}</th>   </tr>
+			<tr >
+				<th>Team Name</th>
+				<th>Matches Played </th>
+				<th> Won </th>
+				<th>Lost </th>
+				<th>Drawn</th>
+				<th>Points</th>
+			</tr>
+			</thead>
+			<!--loop to get data from json array - descending order - five records limited--->
+			<tbody ng-repeat="data in home.jsonArr.team  | orderBy:'points' | limitTo:5">
+				<tr>
+					<td>{{data.teamName}}</td>
+					<td> {{data.matches }} </td>
+					<td> {{ data.Win}} </td>
+					<td> {{ data.Loss   }} </td>
+					<td> {{ data.Drawn}} </td>
+					<td> {{ data.points}} </td>
+				</tr>
+			</tbody>		
+		</table><!--table ends here--->
+	</div>
+	<!---div to show up in middle a table of highlights and a picture of trophy--->
+	<div id="box"  class="col-xs-12 col-sm-12 col-md-12 col-lg-6" >
+			<h3 style="text-align:center; color:rgb(0, 0, 100);">Highlights : {{ home.title }}  </h3>
+			<table id="highlight-table"class="table  table-responsive">
+			<tr><td ng-repeat="data in home.jsonArr.team  | orderBy:'-points' | limitTo:1"><b>Top Performer :{{ data.teamName }} (Points:{{ data.points }}) </b></td></tr>			
+			<tr><td ng-repeat="data in home.jsonArr.team  | orderBy:'-goalsScored' | limitTo:1"><b>Maximum Goals Scored : {{ data.goalsScored  }} (Team:{{ data.teamName }})</b></td></tr>			
+			</table>
+			<img class="centerImage img-responsive" ng-src="epl-images/photo-11.jpg"  />
+		
+	</div>
+	<!---div to show up in  right-side table in large screen and lowermost in all others--->
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">
+		<!--table starts here --->
+		<table class="table table-bordered table-responsive">		
+			<thead >
+				<tr><th colspan="6">Goals Scored :Top 5 Teams :{{home.title }}</th>   </tr>
+				<tr >
+					<th>Team Name</th>
+					<th>Matches Played </th>
+					<th>Won</th>
+					<th>Goals Scored </th>					
+					<th>Points</th>
+				</tr>
+			</thead>
+			<!--loop to get data from json array - descending order - five records limited--->
+			<tbody ng-repeat="data in home.jsonArr.team  | orderBy:'-goalsScored' | limitTo:5">
+				<tr>
+					<td>{{data.teamName}}</td>
+					<td> {{data.matches }} </td>
+					<td> {{ data.Win}} </td>
+					<td>{{ data.goalsScored  }}</td>
+					<td> {{ data.points}} </td>
+				</tr>
+			</tbody>		
+		</table><!--table ends here--->
+		<!--table starts here --->
+		<table class="table table-bordered table-responsive">		
+			<thead >
+				<tr><th colspan="6">Goals Against :Top 5 Teams :{{home.title }}</th>   </tr>
+				<tr >
+					<th>Team Name</th>
+					<th>Matches Played </th>
+					<th>Lost</th>
+					<th>Goals Against </th>					
+					<th>Points</th>
+				</tr>
+			</thead>
+			<!--loop to get data from json array - descending order - five records limited--->
+			<tbody ng-repeat="data in home.jsonArr.team  | orderBy:'-goalsAgainst' | limitTo:5">
+				<tr>
+					<td>{{data.teamName}}</td>
+					<td> {{data.matches }} </td>
+					<td> {{ data.Loss}} </td>
+					<td>{{ data.goalsAgainst  }}</td>
+					<td> {{ data.points}} </td>
+				</tr>
+			</tbody>		
+		</table><!--table ends here--->
+	</div>	
+</div> <!--End of row-->
