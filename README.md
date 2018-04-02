@@ -49,7 +49,7 @@ Create a single page application using AngularJS which has following views-
 ## Installation
 
     Complete code of this api has been uploaded to my github page and address is : 
-	http://github.com/rameshkmunjal
+	https://github.com/rameshkmunjal/AssignmentLevel4
 
 ## Contributors
 
